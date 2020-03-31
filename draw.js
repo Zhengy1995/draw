@@ -1,5 +1,4 @@
 export default class Draw {
-	color = ['#ccc', '#FF00FF', '#00BFFF', '#D4F2E7', '#FF1493', '#DC143C', '#FFC0CB', '#FFFF00', '#D2691E', '#FF4500', '#A52A2A' ]
 	constructor(element) {
 		const parent = document.getElementById(element)
 		const canvas = document.createElement('canvas')
@@ -38,7 +37,6 @@ export default class Draw {
 	moveDrawfn(e) {
 		e.stopPropagation()
 		const { clientX, clientY } = e.targetTouches[0]
-		// this.ctx.strokeStyle = this.color[Math.floor(Math.random() * 10)]
 		this.ctx.lineTo(clientX, clientY)
 		this.ctx.stroke()
 	}
