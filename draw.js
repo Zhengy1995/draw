@@ -21,7 +21,7 @@ export default class Draw {
 		this.startEraserfn = this.startEraserfn.bind(this)
 	}
 	startDrawing() {
-		this.stopEraser()
+		this.stopOperation()
 		this.ctx.beginPath()
 		this.operDiv.addEventListener('touchstart', this.startDrawnfn)
 		this.operDiv.addEventListener('touchmove', this.moveDrawfn)
@@ -55,7 +55,6 @@ export default class Draw {
 		//eraser event
 		this.operDiv.removeEventListener('touchstart', this.startEraserfn)
 		this.operDiv.removeEventListener('touchmove', this.moveEraserfn)
-		this.stopEraser()
 	}
 	clearCanvas() {
 		this.stopOperation()
