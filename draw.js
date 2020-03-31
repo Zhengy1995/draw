@@ -60,7 +60,7 @@ export default class Draw {
 		this.stopOperation()
 		this.ctx.clearRect(0, 0, this.canvas.width,this.canvas.height)
 		this.ctx.fillStyle = '#fff'
-    	this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
+    		this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
 	}
 	startEraser() {
 		this.stopOperation()
