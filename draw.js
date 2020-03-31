@@ -48,25 +48,25 @@ export default class Draw {
 		const { clientX, clientY } = e.targetTouches[0]
 		this.ctx.clearRect(clientX-5, clientY-5, 10, 10)
 	}
-	stopDrawing() {
+	stopOperation() {
+		//drawing event
 		this.operDiv.removeEventListener('touchmove', this.moveDrawfn)
 		this.operDiv.removeEventListener('touchstart', this.startDrawnfn)
+		//eraser event
+		this.operDiv.removeEventListener('touchstart', this.startEraserfn)
+		this.operDiv.removeEventListener('touchmove', this.moveEraserfn)
 		this.stopEraser()
 	}
 	clearCanvas() {
-		this.stopEraser()
+		this.stopOperation()
 		this.ctx.clearRect(0,0,this.canvas.width,this.canvas.height)
 		this.ctx.fillStyle = '#fff'
     	this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height)
 	}
 	startEraser() {
-		this.stopDrawing()
+		this.stopOperation()
 		this.operDiv.addEventListener('touchstart', this.startEraserfn)
 		this.operDiv.addEventListener('touchmove', this.moveEraserfn)
-	}
-	stopEraser() {
-		this.operDiv.removeEventListener('touchstart', this.startEraserfn)
-		this.operDiv.removeEventListener('touchmove', this.moveEraserfn)
 	}
 
 }
